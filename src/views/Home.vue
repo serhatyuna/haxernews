@@ -1,25 +1,20 @@
 <template>
   <main class="home">
     <div class="container">
-      <div class="story" v-for="(story, id) in stories" :key="id">
-        <h2>{{ story.data.title }}</h2>
-        <p>
-          <router-link :to="{ path: '/story/' + story.data.id }">{{
-            story.data.url
-          }}</router-link>
-        </p>
-        <p>Comments: {{ story.data.descendants }}</p>
-        <p>Score: {{ story.data.score }}</p>
-      </div>
+      <item v-for="story in stories" :key="story.data.id" :story="story" />
     </div>
   </main>
 </template>
 
 <script>
 import axios from 'axios'
+import Item from '@/components/Item.vue'
 
 export default {
   name: 'home',
+  components: {
+    item: Item
+  },
   data: function() {
     return {
       err: '',

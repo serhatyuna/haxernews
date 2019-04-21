@@ -29,6 +29,7 @@ export default {
     }
   },
   created: function() {
+    console.log(this.$route)
     axios
       .get(
         'https://hacker-news.firebaseio.com/v0/item/' +
