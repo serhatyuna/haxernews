@@ -1,5 +1,5 @@
 <template>
-  <div class="home">sadfs asdas as dasdasdaskdjasjd Anasayfa</div>
+  <main class="home"></main>
 </template>
 
 <script>

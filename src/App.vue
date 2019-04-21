@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <headerSec />
+    <navbar />
     <router-view />
   </div>
 </template>
 
 <script>
-import HeaderSec from '@/components/HeaderSec.vue'
+import Navbar from '@/components/Navbar.vue'
 
 export default {
   components: {
-    headerSec: HeaderSec
+    navbar: Navbar
   }
 }
 </script>
