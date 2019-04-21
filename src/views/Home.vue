@@ -1,9 +1,11 @@
 <template>
-  <div class="home">Anasayfa</div>
+  <div class="home">sadfs asdas as dasdasdaskdjasjd Anasayfa</div>
 </template>
 
 <script>
 export default {
-  name: "home"
-};
+  name: 'home'
+}
 </script>
+
+<style scoped></style>

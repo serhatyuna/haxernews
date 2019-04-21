@@ -6,17 +6,17 @@
 </template>
 
 <script>
-import HeaderSec from "@/components/HeaderSec.vue";
+import HeaderSec from '@/components/HeaderSec.vue'
 
 export default {
   components: {
     headerSec: HeaderSec
   }
-};
+}
 </script>
 
 <style>
 body {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 </style>
