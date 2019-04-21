@@ -1,11 +1,16 @@
 <template>
   <main class="home">
-    <div class="story" v-for="story in stories" :key="story">
-      <h2>{{ story.data.title }}</h2>
-      <p>{{ story.data.url }}</p>
-      <p>Comments: {{ story.data.descendants }}</p>
-      <p>Score: {{ story.data.score }}</p>
-      {{ story }}
+    <div class="container">
+      <div class="story" v-for="(story, id) in stories" :key="id">
+        <h2>{{ story.data.title }}</h2>
+        <p>
+          <router-link :to="{ path: '/story/' + story.data.id }">{{
+            story.data.url
+          }}</router-link>
+        </p>
+        <p>Comments: {{ story.data.descendants }}</p>
+        <p>Score: {{ story.data.score }}</p>
+      </div>
     </div>
   </main>
 </template>
@@ -22,7 +27,6 @@ export default {
     }
   },
   created: async function() {
-    // https://hacker-news.firebaseio.com/v0/topstories.json
     axios
       .get('https://hacker-news.firebaseio.com/v0/topstories.json')
       .then(response => {
@@ -45,4 +49,10 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.container {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>

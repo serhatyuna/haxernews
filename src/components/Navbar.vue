@@ -28,7 +28,7 @@ h1 {
 
 .Header {
   height: 60px;
-  background-color: #fbeaff;
+  background-color: darken(#fbeaff, 5);
   border-bottom: 2px solid #845ec2;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
