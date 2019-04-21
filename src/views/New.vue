@@ -1,7 +1,12 @@
 <template>
   <main class="home">
     <div class="container">
-      <item v-for="story in stories" :key="story.data.id" :story="story" />
+      <item
+        v-for="story in stories"
+        :key="story.data.id"
+        :story="story"
+        :new="true"
+      />
     </div>
   </main>
 </template>

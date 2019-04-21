@@ -7,8 +7,14 @@
     </router-link>
     <br />
     <span class="meta">
-      by {{ story.data.by }} | {{ story.data.time }} Ago |
-      {{ story.data.descendants }} comments
+      by {{ story.data.by }} |
+      <timeago
+        v-if="this.$props.new"
+        :datetime="new Date(1000 * story.data.time)"
+        :auto-update="60"
+      ></timeago>
+      <timeago v-else :datetime="new Date(1000 * story.data.time)"></timeago>
+      | {{ story.data.descendants }} comments
     </span>
   </div>
 </template>
@@ -16,7 +22,7 @@
 <script>
 export default {
   name: 'Item',
-  props: ['story']
+  props: ['story', 'new']
 }
 </script>
 
