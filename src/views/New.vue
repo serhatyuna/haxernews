@@ -1,6 +1,12 @@
 <template>
   <main class="home">
-    <div class="container">
+    <div class="container" v-if="err">
+      <p>Please refresh the page. We couldn't fetch the data...</p>
+    </div>
+    <div class="container" v-else-if="!err && isLoading">
+      <p class="loading">Loading...</p>
+    </div>
+    <div class="container" v-else>
       <item
         v-for="story in stories"
         :key="story.data.id"
@@ -23,6 +29,7 @@ export default {
   data: function() {
     return {
       err: '',
+      isLoading: true,
       stories: []
     }
   },
@@ -39,10 +46,15 @@ export default {
             })
             .catch(err => {
               this.err = err
+              this.isLoading = false
             })
         })
       })
+      .then(() => {
+        this.isLoading = false
+      })
       .catch(err => {
+        this.isLoading = false
         this.err = err
       })
   }
@@ -54,5 +66,10 @@ export default {
   width: 900px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.loading {
+  font-size: 0.8em;
+  font-style: italic;
 }
 </style>

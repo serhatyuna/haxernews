@@ -9,7 +9,9 @@
           <p>{{ comment.text }}</p>
           <div class="comment-bottom">
             <div class="comment-author">{{ comment.by }}</div>
-            <div class="comment-date">{{ comment.time }}</div>
+            <div class="comment-date">
+              <timeago :datetime="new Date(1000 * comment.time)"></timeago>
+            </div>
           </div>
         </div>
       </div>
@@ -29,7 +31,6 @@ export default {
     }
   },
   created: function() {
-    console.log(this.$route)
     axios
       .get(
         'https://hacker-news.firebaseio.com/v0/item/' +
