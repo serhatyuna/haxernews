@@ -19,7 +19,7 @@ import Item from '@/components/Item.vue'
 export default {
   name: 'home',
   components: {
-    item: Item
+    Item
   },
   data: function() {
     return {
@@ -35,7 +35,7 @@ export default {
         let limitedResponse = response.data.slice(0, 15)
         limitedResponse.forEach(id => {
           axios
-            .get('https://hacker-news.firebaseio.com/v0/item/' + id + '.json')
+            .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
             .then(response => {
               this.stories.push(response)
             })

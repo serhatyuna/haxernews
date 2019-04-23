@@ -33,16 +33,16 @@ export default {
   created: function() {
     axios
       .get(
-        'https://hacker-news.firebaseio.com/v0/item/' +
-          this.$route.params.id +
-          '.json'
+        `https://hacker-news.firebaseio.com/v0/item/${
+          this.$route.params.id
+        }.json`
       )
       .then(res => {
         this.story = res.data
         this.story.comments = []
         this.story.kids.forEach(id => {
           axios
-            .get('https://hacker-news.firebaseio.com/v0/item/' + id + '.json')
+            .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
             .then(res => {
               this.comments.push(res.data)
             })
