@@ -12,9 +12,7 @@ Object.keys(filters).forEach(key => {
 
 Vue.use(VueTimeago, {
   name: 'Timeago', // Component name, `Timeago` by default
-  locale: 'en', // Default locale
-  // We use `date-fns` under the hood
-  // So you can use all locales from it
+  locale: 'en',
   locales: {
     'tr-TR': require('date-fns/locale/tr')
   }
